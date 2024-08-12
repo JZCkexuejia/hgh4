@@ -1,0 +1,13 @@
+
+Dim str As  New OpenFileDialog()
+str.ShowDialog()
+Dim FileName As String=str.FileName() 
+C("txtFileName").Text=""
+C("txtSavePath").Text=""
+If(FileName.Contains(".xlsx") =False Or FileName.Contains(".xls") =False )
+msgbox("请上传xlsx或者xls文件") 
+Return
+End If
+
+C("txtFileName").Text=FileName
+C("txtSavePath").Text=System.IO.Path.GetDirectoryName(FileName)&"\"
